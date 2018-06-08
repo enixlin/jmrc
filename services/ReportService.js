@@ -9,7 +9,7 @@
 
 var db = require('./DataBaseService').localDB();
 
-
+// 这一个组合模式生成的报表类
 class Report {
     constructor(name) {
         this.name = name;
