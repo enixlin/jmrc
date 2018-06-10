@@ -8,7 +8,19 @@ Ext.define('jmrc.view.register.RegisterViewController', {
         let form = this.getView().getForm();
         console.log(form.getFieldValues());
         console.log(form.getFieldValues()['password']);
-        if (form.getFieldValues()['password'] == form.getValues()['confirmPassword']) {
+        let name = form.getFieldValues()['name'];
+        let password = form.getFieldValues()['password'];
+        let confirmPassword = form.getFieldValues()['confirmPassword'];
+        if (name == "" || password == "") {
+            alert("用户名或密码不能为空");
+            return;
+        }
+
+        if (password == confirmPassword) {
+            // 加密用户密码
+            let passwordEncpty = Ext.util.Base64.encode(password);
+
+            form.setValues({ name: name, password: passwordEncpty });
             form.submit({
                 success: function(form, action) {
                     Ext.Msg.alert('添加用户成功', action.result.msg);
@@ -18,7 +30,7 @@ Ext.define('jmrc.view.register.RegisterViewController', {
                 }
             });
         } else {
-            alert('pd is  not same');
+            alert('两次输入的密码不一致');
         }
         //form = null;
     },
