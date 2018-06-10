@@ -6,6 +6,7 @@ Ext.define('jmrc.view.login.LoginView', {
         'jmrc.view.login.LoginController',
         'jmrc.view.login.LoginModel',
         'jmrc.view.main.MainView',
+        'jmrc.view.register.RegisterView'
     ],
 
     plugins: 'viewport',
@@ -64,13 +65,23 @@ Ext.define('jmrc.view.login.LoginView', {
                 allowBlank: false
             },
 
+            // 新注册用户
+            {
+                xtype: 'button',
+                text: '新注册用户',
+                width: 80,
+                iconCls: 'x-fa fa-user',
+                margin: '10 5 5 10',
+                handler: "onregister"
+            },
+
             // Reset and Submit buttons
             {
                 xtype: 'button',
                 text: '重置',
                 width: 80,
                 iconCls: 'x-fa fa-remove',
-                margin: '10 10 5 70',
+                margin: '10 5 5 10',
                 handler: "onreset"
             }, {
                 xtype: 'button',
@@ -79,7 +90,7 @@ Ext.define('jmrc.view.login.LoginView', {
                 width: 80,
                 formBind: true, //only enabled once the form is valid
                 disabled: true,
-                margin: '10 10 5 10',
+                margin: '10 5 5 10',
                 handler: "onlogin"
             }
 

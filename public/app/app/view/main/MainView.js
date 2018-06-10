@@ -15,6 +15,7 @@ Ext.define('jmrc.view.main.MainView', {
         'jmrc.view.main.MainController',
         'jmrc.view.main.MainModel',
         'jmrc.view.main.List',
+        'jmrc.view.register.RegisterView',
         //'jmrc.view.login.Login'
     ],
     plugins: 'viewport',
@@ -93,9 +94,9 @@ Ext.define('jmrc.view.main.MainView', {
         }, {
             title: 'Groups',
             iconCls: 'fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
+            items: [{
+                xtype: 'register'
+            }]
         }, {
             title: 'Settings',
             iconCls: 'fa-cog',
@@ -109,7 +110,11 @@ Ext.define('jmrc.view.main.MainView', {
             // bind: {
             //     html: '{loremIpsum}'
             // 
-            tbar: [{ text: 'logout', layout: 'center', handler: "logout" }]
+            tbar: [
+                { text: 'logout', layout: 'center', handler: "logout" },
+                { text: 'changeUI', layout: 'center', handler: "changeUI" },
+
+            ]
 
 
 

@@ -27,6 +27,10 @@ Ext.define('jmrc.view.main.MainController', {
             //
         }
     },
+
+    changeUI: function() {
+        //Ext.util.CSS.swapStyleSheet('default-skin','../../ext/classic/theme-classic/');
+    },
     logout: function() {
         if (confirm('是否要退出?')) {
             // Remove the localStorage key/value

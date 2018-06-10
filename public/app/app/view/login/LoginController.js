@@ -26,6 +26,14 @@ Ext.define('jmrc.view.login.LoginController', {
 
     },
 
+    onregister: function() {
+        var view = this.getView();
+        view.destroy();
+        Ext.create({
+            xtype: 'register'
+        });
+    },
+
 
     onreset: function() {
         this.getView().getForm().reset();

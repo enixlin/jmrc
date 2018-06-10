@@ -15,6 +15,15 @@ router.all('/getUserName', function(req, res, next) {
     });
 });
 
+
+router.all('/addUser', function(req, res, next) {
+    let userInfo = { name: req.body.name, password: req.body.password };
+    user.addUser(userInfo);
+    res.send(true);
+
+});
+
+
 router.all('/valitLogin', function(req, res, next) {
     let users = {
         id: req.body.id,

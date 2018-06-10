@@ -20,6 +20,11 @@ var user = {
 
     //添加用户
     addUser: function(user) {
+        let params = [user.name, user.password];
+        let sql = "insert into user (name,password) values(?,?)";
+        db.query(sql, params, function(err, rows) {
+            console.log(rows);
+        });
 
     },
 
