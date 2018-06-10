@@ -37,7 +37,11 @@ Ext.define('jmrc.view.register.RegisterView', {
                 }
             },
             { xtype: 'textfield', fieldLabel: '密码', name: 'password' },
-            { xtype: 'textfield', fieldLabel: '确认密码', name: 'confirmPassword' },
+            {
+                xtype: 'textfield',
+                fieldLabel: '确认密码',
+                name: 'confirmPassword',
+            },
 
             { //
                 xtype: 'button',
