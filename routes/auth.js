@@ -20,6 +20,7 @@ router.all('/doLogin', function(req, res, next) {
 
 router.all('/doLogout', function(req, res, next) {
     auth.doLogout();
+    res.send("true");
 });
 
 module.exports = router;

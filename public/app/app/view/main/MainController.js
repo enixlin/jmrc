@@ -12,12 +12,6 @@ Ext.define('jmrc.view.main.MainController', {
 
 
 
-    init: function() {
-
-
-
-    },
-
     onItemSelected: function(sender, record) {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },

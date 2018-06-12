@@ -9,7 +9,7 @@ Ext.define('jmrc.store.User', {
     ],
     proxy: {
         type: 'ajax',
-        url: '/users/getUserName',
+        url: '/users/getUserNameAndId',
 
     }
 });

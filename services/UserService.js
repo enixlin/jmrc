@@ -18,18 +18,39 @@ var user = {
         });
     },
 
+
+    //取得所有用户的全部信息
+    getUserInformation: function() {
+        return new Promise(function(resolve, reject) {
+            var sqlString = "select * from user";
+            db.query(sqlString, function(err, rows) {
+                resolve(rows);
+            });
+        });
+    },
+
     //添加用户
     addUser: function(user) {
         let params = [user.name, user.password];
-        let sql = "insert into user (name,password) values(?,?)";
+        let sql = "insert into user (name,password,status) values(?,?,1)";
         db.query(sql, params, function(err, rows) {
-            console.log(rows);
+            // console.log(rows);
         });
 
     },
 
     //修改用户
-    modifyUser: function(user) {},
+    modifyUser: function(user) {
+        return new Promise(function(resolve, reject) {
+            let sql = "update user set name=? ,password=? ,status=?";
+            let params = [user.name, user.password, user.status];
+
+            db.query(sql, params, function(err, rows) {
+                resolve(rows);
+            });
+        });
+
+    },
 
     //停用用户
     fozenUser: function(userId) {

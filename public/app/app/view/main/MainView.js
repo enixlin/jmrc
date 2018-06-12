@@ -16,7 +16,8 @@ Ext.define('jmrc.view.main.MainView', {
         'jmrc.view.main.MainModel',
         'jmrc.view.main.List',
         'jmrc.view.register.RegisterView',
-        //'jmrc.view.login.Login'
+        'jmrc.view.user.UserView',
+        'jmrc.view.user.UserViewController'
     ],
     plugins: 'viewport',
     controller: 'main',
@@ -79,26 +80,27 @@ Ext.define('jmrc.view.main.MainView', {
 
 
     items: [{
-            title: 'Home',
-            iconCls: 'fa-line-chart',
+            title: '工作提示',
+            iconCls: 'fa-tv',
             // The following grid shares a store with the classic version's grid as well!
             items: [{
                 xtype: 'mainlist'
             }]
         }, {
             title: '业绩报表',
-            iconCls: 'fa-user',
+            iconCls: 'fa-line-chart',
             bind: {
                 html: '{loremIpsum}'
             }
         }, {
-            title: 'Groups',
+            title: '用户管理',
             iconCls: 'fa-users',
             items: [{
-                xtype: 'register'
+                xtype: 'user'
             }]
+
         }, {
-            title: 'Settings',
+            title: '系统设置',
             iconCls: 'fa-cog',
             bind: {
                 html: '{loremIpsum}'
@@ -106,13 +108,11 @@ Ext.define('jmrc.view.main.MainView', {
         },
         {
             title: '退出系统',
-            iconCls: 'fa-logout',
-            // bind: {
-            //     html: '{loremIpsum}'
-            // 
+            iconCls: 'fa-cancel',
+            layout: 'center',
             tbar: [
                 { text: 'logout', layout: 'center', handler: "logout" },
-                { text: 'changeUI', layout: 'center', handler: "changeUI" },
+
 
             ]
 

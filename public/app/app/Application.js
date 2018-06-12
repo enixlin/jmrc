@@ -23,8 +23,6 @@ Ext.define('jmrc.Application', {
     launch: function() {
 
         this.checkLogin();
-
-
     },
 
     onAppUpdate: function() {
@@ -42,7 +40,6 @@ Ext.define('jmrc.Application', {
             url: "/auth/checkLogin"
         }).then(function(response, opts) {
                 var obj = Ext.decode(response.responseText);
-                //console.log(obj);
                 Ext.create({
                     xtype: obj ? 'app-main' : 'login'
                 });
