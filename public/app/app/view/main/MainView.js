@@ -116,6 +116,15 @@ Ext.define('jmrc.view.main.MainView', {
 
             ]
 
+        },
+        {
+            title: 'ftp系统',
+            iconCls: 'fa-cancel',
+            layout: 'center',
+            tbar: [
+                { text: '取得ftp服务器目录', layout: 'center', handler: "getDirectory" },
+            ]
+
 
 
 

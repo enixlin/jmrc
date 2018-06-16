@@ -21,6 +21,7 @@ Ext.define('jmrc.view.user.UserView', {
             store: '{pp}',
             columns: '{columns}'
         },
+        
 
         default: { align: "center" },
         columns: [

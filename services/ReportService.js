@@ -9,19 +9,51 @@
 
 var db = require('./DataBaseService').localDB();
 
-// 这一个组合模式生成的报表类
-class Report {
-    constructor(name) {
+
+var Report = {
+
+    // 按业务类型,时间段统计业务笔数和金额
+    busySumByTypeName: function(type_name, start, end) {
+        return new Promise(function(resolve, reject) {
+            let params = [type_name, start, end];
+            let sql = 'select yw_name, sum(usdamt) as sumAmt, count(name) as BusyCount from jrrc_ywls_fixed where yw_name=? and yw_date>=? and yw_date<=?';
+            db.query(sql, params, function(err, rows) {
+                if (!err) {
+                    resolve(rows);
+                } else {
+                    resolve(err);
+                }
+            });
+        });
+    },
+}
+
+var Client = {
+    _constructor: function(name, id, unit) {
         this.name = name;
-        this.children = [];
+        this.id = id;
+        this.unit = unit;
+        this.BusyTypeList = [];
+    },
+    getBusyType: function(clientId) {
+        return new Promise(function(resolve, reject) {
+            let params = [clientId];
+            let sql = 'select yw_name from jrrc_ywls_fixed where custno=?';
+            db.query(sql, params, function(err, rows) {
+                if (!err) {
+                    resolve(rows);
+                } else {
+                    resolve(err);
+                }
+            });
+        });
     }
 }
 
-Report.prototype = {
-    //生成报表
-    create: function() { throw new Error("抽象类的方法不能调用,需在实现类中重写"); },
-    //显示报表 
-    show: function() { throw new Error("抽象类的方法不能调用,需在实现类中重写"); },
-};
+Client.prototype = {
 
-module.exports = report;
+}
+
+
+
+module.exports = Report;

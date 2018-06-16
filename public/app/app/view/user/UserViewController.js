@@ -5,6 +5,10 @@ Ext.define('jmrc.view.user.UserViewController', {
 
     showAddUser: function() {
         Ext.create({ xtype: 'register' });
+    },
+
+    refresh: function() {
+
     }
 
 });

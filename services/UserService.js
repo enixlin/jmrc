@@ -7,6 +7,7 @@ var db = require('./DataBaseService').localDB();
 
 var user = {
 
+	
 
     //获取所有用户的编号和姓名
     getUserNameAndId: function() {

@@ -36,6 +36,11 @@ Ext.define('jmrc.view.main.MainController', {
             });
         }
 
+    },
+    getDirectory: function() {
+        Ext.Ajax.request({ url: '/ftp/getDirectory' }).then(function(result) {
+
+        });
     }
 
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+
+
+
+
+</head>
+
+<body>
+
+    <form action="" id='form'>
+        测试的网址: <input type="text" id='url'> <br><br>
+
+        <input type="text" name="">
+        <input type="text" name=""><br><br>
+
+
+        <input type="button" value="添加字段" onclick="dofunction();">
+
+
+    </form>
+
+
+
+
+</body>
+
+</html>
+
+
+
+<script>
+    var url = document.getElementById('url');
+    var strurl = url.value;
+    console.log(strurl);
+    var params = {
+        id: 1,
+        name: 'testName'
+    };
+    var form = document.getElementById('form');
+    form.setAttribute('action', strurl);
+    form.setAttribute('method', 'get');
+    form.setAttribute('params', params);
+    var dofunction = function() {
+        form.submit();
+    }
+</script>
