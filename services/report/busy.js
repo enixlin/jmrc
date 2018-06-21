@@ -12,28 +12,33 @@
  */
 
 
-var db = require('../DataBaseService').localDB();
+var db = require('../DataBaseService');
 
-
-var busyReport = {
-
-    busySumByTypeName: function(type_name, start, end) {
-        console.log("busySumByTypeName is run...");
-
-        let params = [type_name, start, end];
-        let sql = 'select yw_name, sum(usdamt) as sumAmt, count(name) as BusyCount where yw_type=? and yw_date>=? and yw_date<=?';
-        db.query(sql, params, function(err, rows) {
-            return rows;
+var busy = {
+    getBusyRecord: function(busyName, start, end) {
+        return new Promise(function(resolve, reject) {
+            let sql = "select * from jrrc_ywls_fixed where yw_type=?";
+            let params = [busyName];
+            db.doQuery(sql, params).then(function(result) {
+                resolve(result);
+            });
         });
-
-
-
     },
-    busySumByTypeId: function(type_id, start, end) {
 
-
-    },
+    sumBusyById: function(busyId) {
+        return new Promise(function(resolve, reject) {
+            let sql = "select yw_type, sum(usdamt) as sumamt";
+            let params = [busyName];
+            db.query(sql, params, function(err, result) {
+                if (!err) {
+                    resolve(result);
+                } else {
+                    resolve(err);
+                }
+            });
+        });
+    }
 }
 
 
-module.exports = busyReport;
+module.exports = busy;

@@ -8,6 +8,7 @@ Ext.define('jmrc.view.user.UserViewController', {
     },
 
     refresh: function() {
+        console.log(this.getView().getViewModel().data['pp'].reload());
 
     }
 

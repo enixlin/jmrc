@@ -36,6 +36,13 @@ Ext.define('jmrc.view.register.RegisterView', {
 
                 fieldLabel: '用户名',
                 name: 'name',
+                id: 'userName',
+
+                listeners: {
+                    // click: function() { alert('click') }
+                    //focus: function() { alert('click') }
+                    change: "checkName"
+                }
 
             },
             { xtype: 'textfield', fieldLabel: '密码', name: 'password' },
@@ -49,11 +56,14 @@ Ext.define('jmrc.view.register.RegisterView', {
                 hidden: true,
                 name: 'hidenPassword',
             },
+            { xtype: 'label', id: 'nameStatus' }
         ],
         buttons: [{ //
 
                 margin: '10 10 10 10',
                 text: '保存',
+                id: "btn_save",
+                disabled: true,
                 handler: 'save'
             },
 

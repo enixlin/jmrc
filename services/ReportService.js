@@ -7,52 +7,29 @@
  */
 
 
-var db = require('./DataBaseService').localDB();
+var busy = require("../services/report/busy");
 
 
 var Report = {
 
     // 按业务类型,时间段统计业务笔数和金额
-    busySumByTypeName: function(type_name, start, end) {
+    getBusyRecord: function(type_name, start, end) {
+        console.log("do getBusyRecord....");
+        console.log("type_name is ...." + type_name);
+        console.log("start is ...." + start);
+        console.log("end is ...." + end);
         return new Promise(function(resolve, reject) {
-            let params = [type_name, start, end];
-            let sql = 'select yw_name, sum(usdamt) as sumAmt, count(name) as BusyCount from jrrc_ywls_fixed where yw_name=? and yw_date>=? and yw_date<=?';
-            db.query(sql, params, function(err, rows) {
-                if (!err) {
-                    resolve(rows);
-                } else {
-                    resolve(err);
-                }
-            });
-        });
-    },
-}
-
-var Client = {
-    _constructor: function(name, id, unit) {
-        this.name = name;
-        this.id = id;
-        this.unit = unit;
-        this.BusyTypeList = [];
-    },
-    getBusyType: function(clientId) {
-        return new Promise(function(resolve, reject) {
-            let params = [clientId];
-            let sql = 'select yw_name from jrrc_ywls_fixed where custno=?';
-            db.query(sql, params, function(err, rows) {
-                if (!err) {
-                    resolve(rows);
-                } else {
-                    resolve(err);
-                }
+            busy.getBusyRecord(type_name, start, end).then(function(data) {
+                console.log("report output.................................");
+                console.log(data[0]);
+                resolve(data);
             });
         });
     }
 }
 
-Client.prototype = {
 
-}
+
 
 
 

@@ -2,17 +2,19 @@
  * 系统授权类
  * 
  */
-var db = require("./DataBaseService").localDB(); //引入数据库操作类
+var db = require("./DataBaseService"); //引入数据库操作类
 var session = require('session'); //引入会话操作类
 
 var auth = {
     //处理登录
     doLogin: function(user) {
         return new Promise(function(resolve, reject) {
+            // console.log(`user.password is ${ user['password']}`);
             var sqlString = "select * from user";
-            db.query(sqlString, function(err, rows) {
+            db._connect.query(sqlString, function(err, rows) {
                 let LoggedUser;
                 rows.forEach(element => {
+                    console.log(`element.password is ${ element['password']}`);
                     if (element['id'] == user['id'] && element['password'] == user['password']) {
                         LoggedUser = { id: element['id'], name: element["name"] };
                     }

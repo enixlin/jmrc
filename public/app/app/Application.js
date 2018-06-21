@@ -21,7 +21,6 @@ Ext.define('jmrc.Application', {
     ],
 
     launch: function() {
-
         this.checkLogin();
     },
 
@@ -35,19 +34,16 @@ Ext.define('jmrc.Application', {
         );
     },
     checkLogin: function() {
-
         Ext.Ajax.request({
-            url: "/auth/checkLogin"
-        }).then(function(response, opts) {
-                var obj = Ext.decode(response.responseText);
+            url: "/auth/checkLogin",
+            success: function(response, opts) {
+                console.log(`response.responseText is ${response.responseText}`);
+                var obj = response.responseText;
                 Ext.create({
-                    xtype: obj ? 'app-main' : 'login'
+                    xtype: obj != "false" ? 'app-main' : 'login'
                 });
-            },
-            function(response, opts) {
-                console.log('server-side failure with status code ' + response.status);
-
-            });
+            }
+        });
     }
 
 

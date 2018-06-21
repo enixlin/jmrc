@@ -17,6 +17,8 @@ Ext.define('jmrc.view.main.MainView', {
         'jmrc.view.main.List',
         'jmrc.view.register.RegisterView',
         'jmrc.view.user.UserView',
+        'jmrc.view.report.ReportView',
+        'jmrc.view.report.ReportViewController',
         'jmrc.view.user.UserViewController'
     ],
     plugins: 'viewport',
@@ -79,7 +81,19 @@ Ext.define('jmrc.view.main.MainView', {
     },
 
 
-    items: [{
+    items: [
+
+        {
+            title: '报表',
+            iconCls: 'fa-tv',
+            // The following grid shares a store with the classic version's grid as well!
+            items: [{
+                xtype: 'report'
+            }]
+        },
+
+
+        {
             title: '工作提示',
             iconCls: 'fa-tv',
             // The following grid shares a store with the classic version's grid as well!
@@ -112,8 +126,6 @@ Ext.define('jmrc.view.main.MainView', {
             layout: 'center',
             tbar: [
                 { text: 'logout', layout: 'center', handler: "logout" },
-
-
             ]
 
         },
@@ -124,6 +136,12 @@ Ext.define('jmrc.view.main.MainView', {
             tbar: [
                 { text: '取得ftp服务器目录', layout: 'center', handler: "getDirectory" },
             ]
+        },
+        {
+            title: '报表系统',
+            iconCls: 'fa-cancel',
+            layout: 'center',
+
 
 
 

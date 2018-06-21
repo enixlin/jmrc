@@ -25,66 +25,47 @@ Ext.define('jmrc.view.register.RegisterViewController', {
             alert('两次输入的密码不一致');
             return;
         }
-        this.checkname(name).then(function(data) {
-            if (data == 'false') {
-                alert('用户名不可用');
-                return;
-            } else {
-                console.log("run add......................");
-                let passwordEncrypt = b64_md5(password);
+        let passwordEncrypt = b64_md5(password);
+        //重新设置用户注册信息,避免网络明文传播用户密码
+        form.setValues({ name: name, hidenPassword: passwordEncrypt, password: '', confirmPassword: '' });
+        Ext.Ajax.request({
+            url: form.url,
+            params: { name: name, hidenPassword: passwordEncrypt, password: '', confirmPassword: '' },
+            success: function(data) {
+                alert("提交成功:" + data.responseText);
+                console.log(data)
+            },
+            fail: function(err) { alert("提交失败:" + err.responseText); }
+        });
 
-                //重新设置用户注册信息,避免网络明文传播用户密码
-                form.setValues({ name: name, hidenPassword: passwordEncrypt, password: '', confirmPassword: '' });
-                form.submit({
-                    params: { name: name, password: passwordEncrypt },
-                    success: function(form, action) {
-                        Ext.Msg.alert('添加用户成功', action.result.msg);
-                    },
-                    failure: function(form, action) {
-                        Ext.Msg.alert('Failed', action.result.msg);
-                    }
-                });
+    },
 
+
+    checkName: function() {
+        Ext.Ajax.request({
+            url: "/users/checkName",
+            params: { name: Ext.getCmp('userName').getValue() },
+            success: function(data) {
+                let label = Ext.getCmp('nameStatus');
+                let btn_save = Ext.getCmp('btn_save');
+                if (data.responseText == "true") {
+                    label.setText("用户名可以使用");
+
+                    label.setStyle('color', 'green');
+                    btn_save.setDisabled(false);
+                } else {
+                    Ext.getCmp('nameStatus').setText("用户名不能使用");
+                    label.setStyle('color', 'red');
+                    btn_save.setDisabled(true);
+
+                }
             }
         });
-
-
-
-
-
     },
 
 
-    //发送ajax请求,从后台服务器取得所有用户名,检测是否有重复用户
-    checkname: function(userName) {
-        return new Promise(function(resolve, reject) {
-            Ext.Ajax.request({
-                url: '/users/checkUserName',
-                params: { name: userName },
-                method: 'post',
-                success: function(response, opts) {
-                    var obj = Ext.decode(response.responseText);
-                    console.log(obj);
-                    if (obj == true) {
-                        resolve('true');
-                        return true;
-                    } else {
-                        resolve('false');
-                    }
-                },
-                failure: function(response, opts) {
-                    console.log('server-side failure with status code ' + response.status);
-                }
-
-            });
 
 
-        });
-
-
-
-
-    },
 
     // 加密用户密码,引用/public/javascript/util/md5.js 中的b64_md5函数
     encryptPassword: function(password) {
