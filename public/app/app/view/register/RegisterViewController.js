@@ -76,10 +76,7 @@ Ext.define('jmrc.view.register.RegisterViewController', {
 
     //退出新增用户界面,回到登录界面
     logout: function() {
-        this.getView().destroy();
-        Ext.create({
-            xtype: 'login'
-        });
+        this.close();
     }
 
 

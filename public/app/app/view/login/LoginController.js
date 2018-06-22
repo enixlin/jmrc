@@ -23,8 +23,6 @@ Ext.define('jmrc.view.login.LoginController', {
                         Ext.create({
                             xtype: 'app-main'
                         });
-                    } else {
-                        alert('用户名称或密码有误,请重新输入');
                     }
 
                 }

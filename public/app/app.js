@@ -10,7 +10,9 @@ Ext.application({
 
     requires: [
         //     'jmrc.view.main.Main',
-        'jmrc.view.login.LoginView'
+        'jmrc.view.login.LoginView',
+        // 'jmrc.view.login.LoginWindow',
+
     ],
 
     // The name of the initial view to create. With the classic toolkit this class

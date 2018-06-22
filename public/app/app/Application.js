@@ -40,7 +40,11 @@ Ext.define('jmrc.Application', {
                 console.log(`response.responseText is ${response.responseText}`);
                 var obj = response.responseText;
                 Ext.create({
-                    xtype: obj != "false" ? 'app-main' : 'login'
+                    xtype: obj != "false" ? 'app-main' : 'login',
+                    layout: "form",
+                    width: 300,
+                    height: 300,
+                    autoShow: true
                 });
             }
         });
