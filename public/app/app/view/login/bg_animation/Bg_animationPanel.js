@@ -1,3 +1,4 @@
+//this is an animation in login page
 Ext.define('jmrc.view.login.bg_animation.Bg_animationPanel', {
     extend: 'Ext.panel.Panel',
     xtype: 'bg_animation_panel',
