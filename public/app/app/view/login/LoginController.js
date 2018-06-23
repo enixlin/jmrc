@@ -4,9 +4,11 @@ Ext.define('jmrc.view.login.LoginController', {
 
 
 
-    launch: function() {
+    init: function() {
         // console.log(Ext.getCmp('westgb'));
-        console.log(this.getView());
+        // Ext.DomHelper.append('divvv', Ext.getCmp('westbg').bg());
+        console.log(Ext.getCmp('westbg'));
+        console.log("this is inti funciton run.... ");
     },
     onlogin: function() {
         //alert("ok");

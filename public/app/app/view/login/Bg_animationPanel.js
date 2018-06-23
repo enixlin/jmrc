@@ -9,7 +9,7 @@ Ext.define('jmrc.view.login.Bg_animationPanel', {
 
     // init: showAnimation()
     // bg: showAnimation(),
-    html: showAnimation()
+    bg: showAnimation()
 
 
 });
@@ -63,7 +63,9 @@ function showAnimation() {
         //container(renderer.domElement);
         //
         //stats = new Stats();
-        //document.body.appendChild(stats.dom);
+        // document.body.appendChild(renderer.domElement);
+        Ext.DomHelper.append(renderer.domElement, this);
+        //document.body.appendChild(renderer.domElement);
         //  Ext.DomHelper.i
         document.addEventListener('mousemove', onDocumentMouseMove, false);
         //
@@ -105,6 +107,7 @@ function showAnimation() {
         renderer.render(scene, camera);
     }
 
+    console.log(bg);
 
-    return bg;
+    return bg.domElement;
 }
