@@ -2,14 +2,15 @@
 Ext.define('jmrc.view.login.Bg_animationPanel', {
     extend: 'Ext.panel.Panel',
     xtype: 'bg_animation_panel',
+    controller: 'login-bganimation',
 
+    width: 900,
+    height: 600,
+    border: '1px solid blue',
+    layout: 'fit',
 
-    width: 100,
-    height: 400,
+    html: "<div id='div1' > </div>",
 
-    // init: showAnimation()
-    // bg: showAnimation(),
-    bg: showAnimation()
 
 
 });
@@ -18,16 +19,19 @@ Ext.define('jmrc.view.login.Bg_animationPanel', {
 
 function showAnimation() {
 
-
+    // console.log("this is showAnimation funciton run.... ");
     var camera, scene, renderer;
     var geometry, group;
     var mouseX = 0,
         mouseY = 0;
-    // var windowHalfX = 500;
-    // var windowHalfY = 500;
-    var windowHalfX = window.innerWidth / 2;
-    var windowHalfY = window.innerHeight / 2;
-    var bg = init();
+    var windowHalfX = 500;
+    var windowHalfY = 500;
+    var viewWidth = 900;
+    var viewHeight = 600;
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    // var windowHalfX = window.innerWidth / 2;
+    // var windowHalfY = window.innerHeight / 2;
+    init();
     animate();
 
     function init() {
@@ -56,22 +60,24 @@ function showAnimation() {
             antialias: true
         });
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        // let container = Ext.getCmp('westbg');
-        //console.log(Ext.getDom('westbg'));
-        // this.body.update(renderer.domElement);
-        //container(renderer.domElement);
-        //
-        //stats = new Stats();
+        renderer.setSize(viewWidth, viewHeight);
+        // renderer.setSize(window.innerWidth, window.innerHeight);
+
+        let div_bg = window.document.getElementById('div1');
+        let westbg = Ext.getCmp('westbg');
+        //console.log(typeof renderer);
+        // westbg.insert(0, { xtype: 'button', text: 'add button' });
+        // westbg.dom.insert(0, renderer.domElement);
+        // console.log(document);
+        // console.log(div_bg);
+        // console.log(westbg);
         // document.body.appendChild(renderer.domElement);
-        Ext.DomHelper.append(renderer.domElement, this);
-        //document.body.appendChild(renderer.domElement);
+        div_bg.appendChild(renderer.domElement);
         //  Ext.DomHelper.i
         document.addEventListener('mousemove', onDocumentMouseMove, false);
         //
         window.addEventListener('resize', onWindowResize, false);
 
-        return renderer;
     }
 
     function onWindowResize() {
@@ -107,7 +113,6 @@ function showAnimation() {
         renderer.render(scene, camera);
     }
 
-    console.log(bg);
+    // console.log(bg);
 
-    return bg.domElement;
 }

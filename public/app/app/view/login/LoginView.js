@@ -8,6 +8,7 @@ Ext.define('jmrc.view.login.LoginView', {
         'jmrc.view.main.MainView',
         'jmrc.view.register.RegisterView',
         'jmrc.view.login.Bg_animationPanel',
+        'jmrc.view.login.Bg_animationPanelController',
         'jmrc.view.login.LoginWindow'
 
     ],
@@ -31,7 +32,7 @@ Ext.define('jmrc.view.login.LoginView', {
     url: '/auth/doLogin',
     items: [
         { xtype: 'loginwindow', region: 'east' },
-        { xtype: 'bg_animation_panel', region: 'west', title: 'west', id: 'westbg' },
+        { xtype: 'bg_animation_panel', region: 'west', id: "westbg" },
 
 
 

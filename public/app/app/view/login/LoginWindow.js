@@ -6,6 +6,8 @@ Ext.define('jmrc.view.login.LoginWindow', {
     width: 300,
     height: 250,
     layout: "auto",
+    x: 920,
+    y: 350,
     autoShow: true,
     border: true,
     style: { border: '4px solid #5fa2dd', borderRadius: '5px' },

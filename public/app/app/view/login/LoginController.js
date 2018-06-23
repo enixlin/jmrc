@@ -3,12 +3,16 @@ Ext.define('jmrc.view.login.LoginController', {
     alias: 'controller.login-login',
 
 
-
     init: function() {
+        window.resizeTo(1338, 768);
+    },
+
+    afterRender: function() {
         // console.log(Ext.getCmp('westgb'));
         // Ext.DomHelper.append('divvv', Ext.getCmp('westbg').bg());
-        console.log(Ext.getCmp('westbg'));
-        console.log("this is inti funciton run.... ");
+        // console.log(Ext.getCmp('westbg'));
+        // showAnimation();
+        //console.log("this is afterRender funciton run.... ");
     },
     onlogin: function() {
         //alert("ok");
