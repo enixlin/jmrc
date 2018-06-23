@@ -1,11 +1,11 @@
-Ext.define('jmrc.view.login.loginWindow.LoginWindow', {
+Ext.define('jmrc.view.login.LoginWindow', {
     extend: 'Ext.window.Window',
     xtype: 'loginwindow',
     title: '江门农商行国际业务信息系统',
     iconCls: 'x-fa fa-tv',
     width: 300,
     height: 250,
-    //layout: "auto",
+    layout: "auto",
     autoShow: true,
     border: true,
     style: { border: '4px solid #5fa2dd', borderRadius: '5px' },

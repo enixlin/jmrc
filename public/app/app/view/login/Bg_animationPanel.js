@@ -1,17 +1,18 @@
 //this is an animation in login page
-Ext.define('jmrc.view.login.bg_animation.Bg_animationPanel', {
+Ext.define('jmrc.view.login.Bg_animationPanel', {
     extend: 'Ext.panel.Panel',
     xtype: 'bg_animation_panel',
 
 
-    width: 400,
+    width: 100,
     height: 400,
-    // html: showAnimation(),
+
+    // init: showAnimation()
+    // bg: showAnimation(),
+    html: showAnimation()
 
 
 });
-
-
 
 
 
@@ -22,11 +23,11 @@ function showAnimation() {
     var geometry, group;
     var mouseX = 0,
         mouseY = 0;
-    var windowHalfX = 500;
-    var windowHalfY = 500;
-    // var windowHalfX = window.innerWidth / 2;
-    // var windowHalfY = window.innerHeight / 2;
-    init();
+    // var windowHalfX = 500;
+    // var windowHalfY = 500;
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
+    var bg = init();
     animate();
 
     function init() {
@@ -56,14 +57,19 @@ function showAnimation() {
         });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        // let container = Ext.getCmp('westbg');
+        //console.log(Ext.getDom('westbg'));
+        // this.body.update(renderer.domElement);
+        //container(renderer.domElement);
         //
         //stats = new Stats();
         //document.body.appendChild(stats.dom);
-        //
+        //  Ext.DomHelper.i
         document.addEventListener('mousemove', onDocumentMouseMove, false);
         //
         window.addEventListener('resize', onWindowResize, false);
+
+        return renderer;
     }
 
     function onWindowResize() {
@@ -98,4 +104,7 @@ function showAnimation() {
         group.rotation.z = rz;
         renderer.render(scene, camera);
     }
+
+
+    return bg;
 }

@@ -7,12 +7,13 @@ Ext.define('jmrc.view.login.LoginView', {
         'jmrc.view.login.LoginModel',
         'jmrc.view.main.MainView',
         'jmrc.view.register.RegisterView',
-        'jmrc.view.login.bg_animation.Bg_animationPanel',
-        'jmrc.view.login.loginWindow.LoginWindow'
+        'jmrc.view.login.Bg_animationPanel',
+        'jmrc.view.login.LoginWindow'
 
     ],
 
-    //plugins: 'viewport',
+    plugins: 'viewport',
+
 
     controller: 'login-login',
     viewModel: {
@@ -23,8 +24,6 @@ Ext.define('jmrc.view.login.LoginView', {
     layout: "border",
 
 
-    width: 100,
-    height: 200,
 
 
 
@@ -32,7 +31,7 @@ Ext.define('jmrc.view.login.LoginView', {
     url: '/auth/doLogin',
     items: [
         { xtype: 'loginwindow', region: 'east' },
-        //{ xtype: 'bg_animation_panel', region: 'west' },
+        { xtype: 'bg_animation_panel', region: 'west', title: 'west' },
 
 
 

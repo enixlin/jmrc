@@ -2,6 +2,12 @@ Ext.define('jmrc.view.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login-login',
 
+
+
+    launch: function() {
+        // console.log(Ext.getCmp('westgb'));
+        console.log(this.getView());
+    },
     onlogin: function() {
         //alert("ok");
         // console.log(this.getView().getForm());
@@ -58,6 +64,7 @@ Ext.define('jmrc.view.login.LoginController', {
         this.getView().getForm().reset();
 
     }
+
 
 
 
