@@ -4,7 +4,7 @@ Ext.define('jmrc.view.login.Bg_animationPanel', {
     xtype: 'bg_animation_panel',
     controller: 'login-bganimation',
 
-    width: 900,
+    width: "100%",
     height: 600,
     border: '1px solid blue',
     layout: 'fit',
@@ -26,8 +26,8 @@ function showAnimation() {
         mouseY = 0;
     var windowHalfX = 500;
     var windowHalfY = 500;
-    var viewWidth = 900;
-    var viewHeight = 600;
+    var viewWidth = window.innerWidth;
+    var viewHeight = window.innerHeight;
     // renderer.setSize(window.innerWidth, window.innerHeight);
     // var windowHalfX = window.innerWidth / 2;
     // var windowHalfY = window.innerHeight / 2;

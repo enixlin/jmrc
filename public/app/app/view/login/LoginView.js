@@ -9,7 +9,9 @@ Ext.define('jmrc.view.login.LoginView', {
         'jmrc.view.register.RegisterView',
         'jmrc.view.login.Bg_animationPanel',
         'jmrc.view.login.Bg_animationPanelController',
-        'jmrc.view.login.LoginWindow'
+        'jmrc.view.login.LoginWindow',
+        'jmrc.view.login.InformationBar',
+        'jmrc.view.login.InformationBarController'
 
     ],
 
@@ -23,6 +25,7 @@ Ext.define('jmrc.view.login.LoginView', {
     // Fields will be arranged vertically, stretched to full width
 
     layout: "border",
+    border: 1,
 
 
 
@@ -33,6 +36,7 @@ Ext.define('jmrc.view.login.LoginView', {
     items: [
         { xtype: 'loginwindow', region: 'east' },
         { xtype: 'bg_animation_panel', region: 'west', id: "westbg" },
+        { xtype: 'informationbar', region: 'south', id: "informationbar" },
 
 
 
