@@ -4,7 +4,9 @@ Ext.define('jmrc.view.login.Bg_animationPanelController', {
 
     afterRender: function() {
         showAnimation();
-        console.log("this is afterRender funciton is bganimation controller run.... ");
+        // let s = symbol();
+        // console.log(s);
+        console.log("this is afterRender funciton in bganimation controller run.... ");
     },
 
 

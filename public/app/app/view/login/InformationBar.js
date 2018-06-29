@@ -12,7 +12,7 @@ Ext.define('jmrc.view.login.InformationBar', {
         type: 'login-informationbar'
     },
     width: '100%',
-    layout: 'form',
+    // layout: 'form',
     align: 'center',
 
     items: [
