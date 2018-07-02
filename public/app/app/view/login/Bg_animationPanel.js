@@ -4,8 +4,9 @@ Ext.define('jmrc.view.login.Bg_animationPanel', {
     xtype: 'bg_animation_panel',
     controller: 'login-bganimation',
 
-    width: "100%",
+    width: "97%",
     height: 600,
+    margin: '5 15 5 5',
     border: '1px solid blue',
     layout: 'fit',
 

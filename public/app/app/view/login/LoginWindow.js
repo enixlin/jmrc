@@ -5,6 +5,7 @@ Ext.define('jmrc.view.login.LoginWindow', {
     iconCls: 'x-fa fa-tv',
     width: 300,
     height: 250,
+    margin: '5 5 5 5',
     layout: "auto",
     x: 920,
     y: 350,
