@@ -909,10 +909,30 @@ $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-jmrc-application: dynamic(true);;
 $include-jmrc-store-personnel: dynamic(true);;
+$include-jmrc-store-user: dynamic(true);;
+$include-jmrc-store-userstore: dynamic(true);;
+$include-jmrc-view-login-bg_animationpanel: dynamic(true);;
+$include-jmrc-view-login-bg_animationpanelcontroller: dynamic(true);;
+$include-jmrc-view-login-informationbar: dynamic(true);;
+$include-jmrc-view-login-informationbarcontroller: dynamic(true);;
+$include-jmrc-view-login-informationbarmodel: dynamic(true);;
+$include-jmrc-view-login-logincontroller: dynamic(true);;
+$include-jmrc-view-login-loginmodel: dynamic(true);;
+$include-jmrc-view-login-loginview: dynamic(true);;
+$include-jmrc-view-login-loginwindow: dynamic(true);;
 $include-jmrc-view-main-list: dynamic(true);;
-$include-jmrc-view-main-main: dynamic(true);;
 $include-jmrc-view-main-maincontroller: dynamic(true);;
 $include-jmrc-view-main-mainmodel: dynamic(true);;
+$include-jmrc-view-main-mainview: dynamic(true);;
+$include-jmrc-view-register-registerview: dynamic(true);;
+$include-jmrc-view-register-registerviewcontroller: dynamic(true);;
+$include-jmrc-view-register-registerviewmodel: dynamic(true);;
+$include-jmrc-view-report-reportview: dynamic(true);;
+$include-jmrc-view-report-reportviewcontroller: dynamic(true);;
+$include-jmrc-view-report-reportviewmodel: dynamic(true);;
+$include-jmrc-view-user-userview: dynamic(true);;
+$include-jmrc-view-user-userviewcontroller: dynamic(true);;
+$include-jmrc-view-user-userviewmodel: dynamic(true);;
 $output-paths: ("path": "../resources");
 
 /* ======================== ETC ======================== */
@@ -1372,11 +1392,3 @@ $relative-image-path-for-uis: $theme-triton-resource-path;
 @import '../../../../../ext/classic/theme-triton/sass/src/menu/Menu';
 @import '../../../../../ext/classic/theme-triton/sass/src/tab/Tab';
 @import '../../../../../ext/classic/theme-triton/sass/src/window/Toast';
-
-/* including package jmrc */
-$jmrc-resource-root: '' !default;
-$jmrc-resource-path: 'images' !default;
-$current-package: false;
-$current-resource-root: $jmrc-resource-root;
-$relative-image-path-for-uis: $jmrc-resource-path;
-@import '../../../../../sass/src/view/main/Main';

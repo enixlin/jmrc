@@ -32,18 +32,18 @@ Ext.define('jmrc.view.main.MainView', {
     titleRotation: 0,
     tabRotation: 0,
 
-    header: {
-        layout: {
-            align: 'stretchmax'
-        },
-        title: {
-            bind: {
-                text: '{name}'
-            },
-            flex: 0
-        },
-        iconCls: 'fa-th-list'
-    },
+    // header: {
+    //     layout: {
+    //         align: 'stretchmax'
+    //     },
+    //     title: {
+    //         bind: {
+    //             text: '{name}'
+    //         },
+    //         flex: 0
+    //     },
+    //     iconCls: 'fa-th-list'
+    // },
 
     tabBar: {
         flex: 1,
@@ -88,7 +88,7 @@ Ext.define('jmrc.view.main.MainView', {
             iconCls: 'fa-tv',
             // The following grid shares a store with the classic version's grid as well!
             items: [{
-                xtype: 'report'
+                // xtype: 'report'
             }]
         },
 
