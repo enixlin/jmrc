@@ -82,34 +82,42 @@ Ext.define('jmrc.view.main.Main', {
     },
 
     items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
-        items: [{
-            xtype: 'mainlist'
-        }]
-    }, {
-        title: '用户管理',
-        width: 100,
-        height: 50,
-        iconCls: 'fa-user',
-        items: [{
-            xtype: 'user'
-        }],
-        bind: {
-            html: '{loremIpsum}'
+            title: 'Home',
+            iconCls: 'fa-home',
+            // The following grid shares a store with the classic version's grid as well!
+            items: [{
+                xtype: 'mainlist'
+            }]
+        }, {
+            title: '用户管理',
+            width: 100,
+            height: 50,
+            iconCls: 'fa-user',
+            items: [{
+                xtype: 'user'
+            }],
+            bind: {
+                html: '{loremIpsum}'
+            }
+        }, {
+            title: 'Groups',
+            iconCls: 'fa-users',
+            bind: {
+                html: '{loremIpsum}'
+            }
+        }, {
+            title: 'Settings',
+            iconCls: 'fa-cog',
+            bind: {
+                html: '{loremIpsum}'
+            }
+        }, {
+            title: 'logout',
+            iconCls: 'fa-delete',
+            items: [{ xtype: 'button', handler: 'logout', text: '退出登录' }]
+
         }
-    }, {
-        title: 'Groups',
-        iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }]
+
+
+    ]
 });

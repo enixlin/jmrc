@@ -15,8 +15,8 @@ Ext.define('jmrc.view.login.LoginWindow', {
 
     items: [{
             fieldLabel: '用户',
-            // xtype: 'combo',
-            xtype: 'textfield',
+            xtype: 'combo',
+            // xtype: 'textfield',
             store: Ext.create('jmrc.store.User'),
             Width: 250,
             labelAlign: 'right',

@@ -10,6 +10,11 @@ Ext.define('jmrc.view.user.UserViewController', {
     refresh: function() {
         console.log(this.getView().getViewModel().data['pp'].reload());
 
+    },
+    freezing: function() {
+        var gp = Ext.ComponentQuery.query("grid");
+
+        console.log(gp[1]);
     }
 
 });

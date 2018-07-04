@@ -9,11 +9,23 @@ Ext.define('jmrc.view.main.MainController', {
 
     alias: 'controller.main',
 
-    onItemSelected: function (sender, record) {
+    onItemSelected: function(sender, record) {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
     },
+    logout: function() {
+        if (confirm('是否要退出?')) {
+            // Remove the localStorage key/value
+            Ext.Ajax.request({ url: "/auth/doLogout" });
+            var view = this.getView();
+            view.destroy();
+            Ext.create({
+                xtype: 'login'
+            });
+        }
 
-    onConfirm: function (choice) {
+    },
+
+    onConfirm: function(choice) {
         if (choice === 'yes') {
             //
         }
