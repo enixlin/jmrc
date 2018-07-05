@@ -51,12 +51,13 @@ Ext.define('jmrc.view.main.Main', {
         layout: {
             align: 'stretch',
             overflowHandler: 'none'
-        }
+        },
+        //items: [{ type: 'button', handler: 'logout', text: '退出登录' }]
     },
 
     responsiveConfig: {
         tall: {
-            headerPosition: 'top'
+            headerPosition: 'bottom'
         },
         wide: {
             headerPosition: 'left'
