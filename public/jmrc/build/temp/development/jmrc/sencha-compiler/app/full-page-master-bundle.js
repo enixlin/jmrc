@@ -1,2 +1,2 @@
 // @tag full-page
-// @require G:\projects\web\jmrc\public\jmrc\app.js
+// @require /Users/linzhenhuan/Documents/Projects/web/jmrc/public/jmrc/app.js

@@ -9,14 +9,14 @@ Ext.define('jmrc.view.main.List', {
         'jmrc.store.Personnel'
     ],
 
-    title: 'Personnel',
+    title: '我的主页',
 
     store: {
         type: 'personnel'
     },
 
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
+        { text: 'Name', dataIndex: 'name' },
         { text: 'Email', dataIndex: 'email', flex: 1 },
         { text: 'Phone', dataIndex: 'phone', flex: 1 }
     ],

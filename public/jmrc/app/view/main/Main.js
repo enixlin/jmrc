@@ -43,7 +43,7 @@ Ext.define('jmrc.view.main.Main', {
             },
             flex: 0
         },
-        iconCls: 'fa-th-list'
+        iconCls: 'fa-university'
     },
 
     tabBar: {
@@ -83,7 +83,7 @@ Ext.define('jmrc.view.main.Main', {
     },
 
     items: [{
-            title: 'Home',
+            title: '我的主页',
             iconCls: 'fa-home',
             // The following grid shares a store with the classic version's grid as well!
             items: [{
@@ -101,20 +101,20 @@ Ext.define('jmrc.view.main.Main', {
                 html: '{loremIpsum}'
             }
         }, {
-            title: 'Groups',
-            iconCls: 'fa-users',
+            title: '业绩报表',
+            iconCls: 'fa-bar-chart',
             bind: {
                 html: '{loremIpsum}'
             }
         }, {
-            title: 'Settings',
+            title: '系统设置',
             iconCls: 'fa-cog',
             bind: {
                 html: '{loremIpsum}'
             }
         }, {
-            title: 'logout',
-            iconCls: 'fa-delete',
+            title: '退出系统',
+            iconCls: 'fa-sign-out',
             items: [{ xtype: 'button', handler: 'logout', text: '退出登录' }]
 
         }
