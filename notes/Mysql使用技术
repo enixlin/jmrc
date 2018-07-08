@@ -1,0 +1,22 @@
+#create user , name is user1 and password abc123 
+#创建用户
+create user 'user1'@'localhost' IDENTIFIED by 'abc123';
+create user 'user1'@'localhost' IDENTIFIED by 'abc123';
+#用户改名
+rename user 'user1'@'localhost' to 'user_query'@'localhost'
+#修改用户密码
+set password for 'user_query'@'localhost' = password('enixlin1981');
+#将提升用户可登录的主机，允许用户从所有IP登录服务器
+rename user 'user_query'@'localhost' to 'user_query'@'%'
+
+
+
+#将以上的user1用户赋权
+#赋予所有权限
+GRANT ALL privileges ON *.* TO 'user_query'@'%'  
+
+#修改用户权限，只赋予查询权限
+#第一步，先回收所有的权限
+revoke all on *.* from 'user_query'@'%'; 
+#第二步，赋予查询权限
+grant select on *.* to 'user_query'@'%'

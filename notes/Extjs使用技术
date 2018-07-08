@@ -42,3 +42,55 @@
                         previousSibiling() 返回与当前组件同层的前一个节点
 
 
+-------------------------------------------------------------------------------------
+
+
+
+=======================================================================================
+如何使用常用的sencha cmd 命令
+=======================================================================================
+
+一般来说，开发Extjs 项目都会使用到 Sencha cmd 工具，尤其是开发Extjs 6 以上的项目，通过这两天
+的摸索，现将学习心得总结一下：
+
+一、开发环境的搭建
+    使用Sencha cmd 工具来开发有不少优点，Sencha cmd本身是一个命令行工具，在不同的平台都可以
+    使用，现在讲解一下，
+    1、下载Sencha cmd, 下载地址：https://www.sencha.com/products/extjs/cmd-download/
+    按照你的使用的平台下载合适的安装文件安装就可以，记得如果你的开发开台要安装有JRE，否则就要
+    下载安装有JRE的Sencha cmd，安装过程也比较简单，一路NEXT就行。
+    2.将Sencha.exe文件的所有路径 C:\Users\【你的用户名】\bin\Sencha\Cmd （这是默认安装的路径）
+    添加到电脑的环境变量中去
+    3.打开CMD.exe 输入“sencha -v” 如果显示有版本信息则证明安装已经成功
+    4.下载Extjs SDK ,下载地址：https://www.sencha.com/legal/GPL/
+     下载得到一个压缩文件，解压到你指定的文件夹后等待下一步使用，我这里下载的GPL版本的SDK，这个
+     版本是开源的版本，可以免费使用，如果你下载的是6.2以上的零售版，则有30天的试用期，生成的程序
+     界面中会有试用版的标记
+
+二、使用sencha generate app 创建一个空白的应用程序
+    打开cmd.exe，
+    输入 “sencha -sdk 【sdk的文件夹路径】 generate app 【应用程序类型】【应用程序名称】【应用程序路径】” 
+        【应用程序类型】：  -classic 或 -modern
+        【应用程序名称】： 名称自定义，由你决定
+        【应用程序路径】： 路径为当前文件夹的路径，如果要在当前文件夹下建立jmrc程序文件夹，则为 ./jmrc
+
+三、使用sencha app build命令打包应用程序
+    1、sencha app build命令有一个参数非常重要，-e development 或 -e production 指定打包的目标，使用不同的
+    目标参数，打包工具会根据参数在build文件夹下生成不同的文件夹（例如development或production）
+    2、应用程序打包后，所有的js文件，scss文件会打包到build/production（或development）/index.html中，
+    要测试程序，只要访问这个index.html文件，但要注意的是要访问http服务器进行测试，
+    例如在nodejs中访问：http://localhost:3000/yourAppName/index.html
+
+四、使用sencha app watch命令实时监测文件变化
+    由于使用sencha app build命令会在build文件夹生成新的目标程序文件夹，而且非常耗时，所以平时开发时，比较常
+    用的是使sencha app watch命令，同时sencha app watch 耗时比较短，
+    并且不用切换到build/production（或development）/index.html 执行,要注意的是sencha app watch可以带有参数
+    例如： sencha app watch development 就是要实时监测源代码的变化，一旦监测到代码变化就打包到 yourApp/index.html中
+
+    ------------------------------------------------------------------------------------------------------------
+
+
+
+
+    今天新买的电池到了，急忙找到小米笔记本上，之后，小米笔记本的触摸板就变回了原来的手感，两百大元也就值回了~！
+    
