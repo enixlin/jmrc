@@ -9,6 +9,7 @@ Ext.application({
     extend: 'jmrc.Application',
 
     requires: [
+        'jmrc.util.Config', //加载全局配置类
         'jmrc.view.login.LoginView',
     ],
 
