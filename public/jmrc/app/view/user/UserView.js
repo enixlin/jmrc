@@ -15,7 +15,7 @@ Ext.define('jmrc.view.user.UserView', {
     items: [{
         xtype: 'grid',
         title: '用户管理',
-        tbar: [{ text: '新增', handler: 'showAddUser' }, { text: '刷新', handler: 'refresh' }, { text: 'freezing', handler: 'freezing' }],
+        tbar: [{ text: '新增', handler: 'showAddUser' }, { text: '刷新', handler: 'refresh' }, { text: 'hidden', handler: 'hidderAllWin' }, { text: 'post', handler: 'post' }, { text: 'post', handler: 'post' }],
         bind: {
             store: '{pp}',
             columns: '{columns}'

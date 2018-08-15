@@ -1,1 +1,1 @@
-cache_path = '/Users/linzhenhuan/Documents/Projects/web/jmrc/public/jmrc/build/.sass-cache'
+cache_path = 'D:\projects\www\jmrc\public\jmrc/build/.sass-cache'

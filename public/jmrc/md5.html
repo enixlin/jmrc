@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 这个页面主要是用来生成md5加 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../../../javascripts/util/md5.js"></script>
+</head>
+
+<body>
+
+    原始密码
+    <input type="text" id='origin' size="100">
+    <br>
+    <br> MD5加密
+    <textarea id='encrypt' cols=100 rows=10></textarea>
+    <br>
+    <br>
+    <input type="button" value="加密" onclick="encrypt()">
+
+</body>
+
+</html>
+
+<script>
+
+    function encrypt() {
+
+        var origin_password = document.getElementById('origin');
+        var encrypt_password = document.getElementById('encrypt');
+        console.log(origin_password.value);
+        encrypt_password.value = b64_md5(origin_password.value);
+
+
+    }
+
+
+
+
+</script>

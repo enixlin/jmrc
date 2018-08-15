@@ -5,29 +5,29 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('jmrc.view.main.Main', {
-    extend: 'Ext.tab.Panel',
-    xtype: 'app-main',
+Ext.define("jmrc.view.main.Main", {
+    extend: "Ext.tab.Panel",
+    xtype: "app-main",
 
     requires: [
-        'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
-        'jmrc.view.main.MainController',
-        'jmrc.view.main.MainModel',
-        'jmrc.view.main.List',
-        'jmrc.view.register.RegisterView',
-        'jmrc.view.user.UserView',
+        "Ext.plugin.Viewport",
+        "Ext.window.MessageBox",
+        "jmrc.view.main.MainController",
+        "jmrc.view.main.MainModel",
+        "jmrc.view.main.List",
+        "jmrc.view.register.RegisterView",
+        "jmrc.view.user.UserView",
+        "jmrc.view.tab.tablayout",
         // 'jmrc.view.report.ReportView',
         // 'jmrc.view.report.ReportViewController',
-        'jmrc.view.user.UserViewController'
+        "jmrc.view.user.UserViewController"
         // 'jmrc.view.login.LoginView',
-
     ],
 
-    controller: 'main',
-    viewModel: 'main',
-    plugins: 'viewport',
-    ui: 'navigation',
+    controller: "main",
+    viewModel: "main",
+    plugins: "viewport",
+    ui: "navigation",
 
     tabBarHeaderPosition: 1,
     titleRotation: 0,
@@ -35,90 +35,61 @@ Ext.define('jmrc.view.main.Main', {
 
     header: {
         layout: {
-            align: 'stretchmax'
+            align: "stretchmax"
         },
+        // title:CFG.getUserInfo(),
         title: {
             bind: {
+                // text:CFG.getUserInfo()
                 text: '{name}'
             },
+            // text:CFG.getUserInfo(),
             flex: 0
         },
-        iconCls: 'fa-university'
+        iconCls: "fa-university"
     },
 
     tabBar: {
         flex: 1,
         layout: {
-            align: 'stretch',
-            overflowHandler: 'none'
-        },
+            align: "stretch",
+            overflowHandler: "none"
+        }
         //items: [{ type: 'button', handler: 'logout', text: '退出登录' }]
     },
 
     responsiveConfig: {
         tall: {
-            headerPosition: 'bottom'
+            headerPosition: "top"
         },
         wide: {
-            headerPosition: 'left'
+            headerPosition: "left"
         }
     },
 
     defaults: {
         bodyPadding: 20,
         tabConfig: {
-            plugins: 'responsive',
+            plugins: "responsive",
             responsiveConfig: {
                 wide: {
-                    iconAlign: 'left',
-                    textAlign: 'left'
+                    iconAlign: "left",
+                    textAlign: "left"
                 },
                 tall: {
-                    iconAlign: 'top',
-                    textAlign: 'center',
-                    width: 120
+                    iconAlign: "top",
+                    textAlign: "center"
                 }
             }
         }
     },
-
-    items: [{
-            title: '我的主页',
-            iconCls: 'fa-home',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        }, {
-            title: '用户管理',
-            width: 100,
-            height: 50,
-            iconCls: 'fa-user',
-            items: [{
-                xtype: 'user'
-            }],
-            bind: {
-                html: '{loremIpsum}'
-            }
-        }, {
-            title: '业绩报表',
-            iconCls: 'fa-bar-chart',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        }, {
-            title: '系统设置',
-            iconCls: 'fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        }, {
-            title: '退出系统',
-            iconCls: 'fa-sign-out',
-            items: [{ xtype: 'button', handler: 'logout', text: '退出登录' }]
-
-        }
-
+    tbar: [
+        { text: "角色转换", handler: "showRolerListWindow", defaultAlign: 'right' },
+        { text: "", reference: "user_name" },
+        { text: "退出登录", handler: "logout" },
 
     ]
+
+
+
 });
